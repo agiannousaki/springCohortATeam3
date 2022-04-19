@@ -12,4 +12,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
     Person findByLastName(String lastName);
 
+    @Query("select p from Person p where p.lastName like CONCAT('%',?1,'%')")
+    Person findByLastNameLike(String lastName);
+
 }

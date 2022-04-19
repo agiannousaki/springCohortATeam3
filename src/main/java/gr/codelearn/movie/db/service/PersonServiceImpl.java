@@ -22,4 +22,9 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     public Person findByLastName(final String lastName) {
         return personRepository.findByLastName(lastName);
     }
+
+    @Override
+    public Person findByLastNameLike(final String lastName) {
+        return personRepository.findByLastNameLike(lastName);
+    }
 }

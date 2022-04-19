@@ -1,10 +1,12 @@
 package gr.codelearn.movie.db.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data
@@ -18,6 +20,8 @@ public class Activity {
 
 	@ManyToOne
 	@MapsId("personId")
+	@JsonBackReference("activities")
+	@NotNull
 	private Person person;
 
 	@ManyToOne

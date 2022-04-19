@@ -13,8 +13,8 @@
 
 		<!-- Rolling Random Access File Appender with a default buffer of 256 * 1024 bytes -->
 		<RollingRandomAccessFile name="DefaultAppender"
-								 fileName="logs/java-path-spring-default.log"
-								 filePattern="logs/java-path-spring-default-%d{yyyy-MM-dd}.zip">
+								 fileName="logs/moviedb.log"
+								 filePattern="logs/moviedb-%d{yyyy-MM-dd}.zip">
 			<PatternLayout>
 				<Pattern>${LOG_PATTERN}</Pattern>
 			</PatternLayout>
@@ -30,8 +30,8 @@
 
 		<!-- Rolling Random Access File Appender with a default buffer of 256 * 1024 bytes -->
 		<RollingRandomAccessFile name="DataAppender"
-								 fileName="logs/java-path-spring-data.log"
-								 filePattern="logs/java-path-spring-data-%d{yyyy-MM-dd}.zip">
+								 fileName="logs/moviedb-spring-data.log"
+								 filePattern="logs/moviedb-spring-data-%d{yyyy-MM-dd}.zip">
 			<PatternLayout>
 				<Pattern>${LOG_PATTERN}</Pattern>
 			</PatternLayout>
@@ -47,8 +47,8 @@
 
 		<!-- Rolling Random Access File Appender with a default buffer of 256 * 1024 bytes -->
 		<RollingRandomAccessFile name="SqlAppender"
-								 fileName="logs/java-path-spring-data-sql.log"
-								 filePattern="logs/java-path-spring-data-sql-%d{yyyy-MM-dd}.zip">
+								 fileName="logs/moviedb-sql.log"
+								 filePattern="logs/moviedb-sql-%d{yyyy-MM-dd}.zip">
 			<PatternLayout>
 				<Pattern>${LOG_PATTERN}</Pattern>
 			</PatternLayout>
@@ -64,15 +64,11 @@
 	</Appenders>
 
 	<Loggers>
-		<AsyncLogger name="gr.codelearn.spring" level="trace" additivity="false">
+		<AsyncLogger name="gr.codelearn.movie.db" level="trace" additivity="false">
 			<AppenderRef ref="ConsoleAppender"/>
 			<AppenderRef ref="DefaultAppender"/>
 		</AsyncLogger>
 		<AsyncLogger name="org.springframework.web" level="debug" additivity="false">
-			<AppenderRef ref="ConsoleAppender"/>
-			<AppenderRef ref="DefaultAppender"/>
-		</AsyncLogger>
-		<AsyncLogger name="org.springframework.cache" level="trace" additivity="false">
 			<AppenderRef ref="ConsoleAppender"/>
 			<AppenderRef ref="DefaultAppender"/>
 		</AsyncLogger>

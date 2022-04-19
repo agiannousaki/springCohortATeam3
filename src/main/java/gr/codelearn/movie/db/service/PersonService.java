@@ -5,4 +5,7 @@ import gr.codelearn.movie.db.domain.Person;
 public interface PersonService extends BaseService<Person, Long> {
 
     public Person findByLastName(String lastName);
+
+    public Person findByLastNameLike(String lastName);
+
 }

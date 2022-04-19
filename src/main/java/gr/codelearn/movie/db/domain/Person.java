@@ -1,5 +1,6 @@
 package gr.codelearn.movie.db.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -45,9 +46,10 @@ public class Person extends BaseModel {
     @Column(length = 100)
     private String company;
 
+    @JsonManagedReference("activities")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person",fetch = FetchType.EAGER)
     private Set<Activity> activities;
 
 }

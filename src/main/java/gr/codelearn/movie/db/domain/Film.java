@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
 
@@ -14,7 +15,15 @@ import java.util.Date;
 @SuperBuilder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
+@Entity
+@Table(name = "FILMS")
+@SequenceGenerator(name = "idGenerator", sequenceName = "FILMS_SEQ", initialValue = 1, allocationSize = 1)
 public class Film extends Content {
-    private BigInteger durationInSec;
+
+    @Column(nullable = false)
+    private Integer durationInSec;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date dateOfRelease;
 }

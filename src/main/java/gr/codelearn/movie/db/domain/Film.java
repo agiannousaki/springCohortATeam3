@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigInteger;
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @SuperBuilder

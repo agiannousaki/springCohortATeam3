@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -22,7 +23,10 @@ public class SampleContentCreator extends BaseComponent implements CommandLineRu
 
     @Override
     public void run(final String... args) throws Exception {
-        Person p1 = Person.builder().firstName("Angeliki").lastName("Giannousaki").biography("test").build();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+        String dateInString = "31-08-1990";
+        Date date = sdf.parse(dateInString);
+        Person p1 = Person.builder().firstName("Angeliki").lastName("Giannousaki").biography("test").dateOfBirth(date).build();
         personService.create(p1);
 
         logger.debug("Saved person {}", p1);

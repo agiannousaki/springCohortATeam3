@@ -42,6 +42,4 @@ public class PersonController extends AbstractController<Person> {
 		return personService;
 	}
 
-
-
 }

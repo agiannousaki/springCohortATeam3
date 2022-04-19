@@ -30,23 +30,19 @@ public class Person extends BaseModel {
     private String firstName;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
+    @Column
     private Date dateOfBirth;
 
-    @NotNull
-    @Column(precision = 3, scale = 2, nullable = false)
+    @Column(precision = 3, scale = 2)
     private Double height;
 
-    @NotNull
-    @Column(length = 200, nullable = false)
+    @Column(length = 200)
     private String placeOfBirth;
 
-    @NotNull
-    @Column(length = 1000, nullable = false)
+    @Column(length = 1000)
     private String biography;
 
-    @NotNull
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String company;
 
     @ToString.Exclude

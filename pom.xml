@@ -15,7 +15,7 @@
 
     <!-- Versioning -->
     <groupId>gr.codelearn</groupId>
-    <artifactId>movie-db</artifactId>
+    <artifactId>movie-db-cohortA-team3</artifactId>
     <version>2022.1.0</version>
 
     <!-- Meta-data -->

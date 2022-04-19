@@ -18,6 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "CONTENTS")
 @SequenceGenerator(name = "idGenerator", sequenceName = "CONTENTS_SEQ", initialValue = 1, allocationSize = 1)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Content extends BaseModel {
 
     @NotNull
@@ -34,13 +35,8 @@ public class Content extends BaseModel {
 
     @ElementCollection(targetClass = Category.class)
     @CollectionTable(name="CONTENT_CATEGORY")
-    //@JoinTable(name = "CONTENT_CATEGORY", joinColumns = @JoinColumn(name = "CONTENT_ID"))
     @Column(name = "CATEGORY", nullable = false)
     @Enumerated(EnumType.STRING)
-    /*@ElementCollection(targetClass=InterestsEnum.class)
-    @Enumerated(EnumType.STRING) // Possibly optional (I'm not sure) but defaults to ORDINAL.
-    @CollectionTable(name="person_interest")
-    @Column(name="interest")*/
     private Set<Category> genre;
 
     @ToString.Exclude

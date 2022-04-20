@@ -36,7 +36,7 @@ public class Activity {
 	private PersonType personType;
 
 	public Activity(final Content content, final Person person, final PersonType personType) {
-		this.key = new ActivityKey(content.getId(), person.getId());
+		this.key = new ActivityKey(content.getId(), person.getId(), personType);
 		this.content = content;
 		this.person = person;
 		this.personType = personType;

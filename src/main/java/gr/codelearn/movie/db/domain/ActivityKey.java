@@ -14,4 +14,5 @@ import java.io.Serializable;
 public class ActivityKey implements Serializable {
 	private Long contentId;
 	private Long personId;
+	private PersonType personType;
 }

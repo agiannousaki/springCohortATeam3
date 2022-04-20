@@ -62,7 +62,11 @@ public class SampleContentCreator extends BaseComponent implements CommandLineRu
 
         List<Activity> activities = List.of(
                 new Activity(films.get(1),persons.get(0), PersonType.ACTOR),
+                new Activity(films.get(1),persons.get(0), PersonType.PRODUCER),
+                new Activity(films.get(2),persons.get(0), PersonType.DIRECTOR),
+                new Activity(films.get(3),persons.get(0), PersonType.ACTOR),
                 new Activity(films.get(1),persons.get(1), PersonType.PRODUCER),
+                new Activity(films.get(1),persons.get(1), PersonType.ACTOR),
                 new Activity(films.get(1),persons.get(2), PersonType.DIRECTOR),
                 new Activity(films.get(2),persons.get(3), PersonType.ACTOR),
                 new Activity(films.get(2),persons.get(4), PersonType.PRODUCER),

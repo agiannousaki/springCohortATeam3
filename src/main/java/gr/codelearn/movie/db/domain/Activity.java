@@ -2,16 +2,19 @@ package gr.codelearn.movie.db.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @SuperBuilder
+@ToString
+@EqualsAndHashCode
 @Entity
 @Table(name = "ACTIVITIES")
 public class Activity {

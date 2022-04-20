@@ -1,8 +1,10 @@
 package gr.codelearn.movie.db.controller;
 
 import gr.codelearn.movie.db.base.BaseComponent;
+import gr.codelearn.movie.db.domain.Activity;
 import gr.codelearn.movie.db.domain.Film;
 import gr.codelearn.movie.db.domain.Person;
+import gr.codelearn.movie.db.domain.PersonType;
 import gr.codelearn.movie.db.service.FilmService;
 import gr.codelearn.movie.db.service.PersonService;
 import lombok.AllArgsConstructor;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("mvc")
@@ -50,9 +53,11 @@ public class MvcController extends BaseComponent {
 				logger.info("Person with lastname {} does not exist", lastName);
 				model.addAttribute("error", "Person does not exist.");
 			}
-			model.addAttribute("actor", new ArrayList());
-			model.addAttribute("director", new ArrayList());
-			model.addAttribute("producer", new ArrayList());
+			Set<Activity> activities = person.getActivities();
+
+			model.addAttribute("actor", activities.stream().filter(o -> o.getPersonType().equals(PersonType.ACTOR)).map(Activity :: getContent).collect(Collectors.toList()));
+			model.addAttribute("director", activities.stream().filter(o -> o.getPersonType().equals(PersonType.DIRECTOR)).map(Activity :: getContent).collect(Collectors.toList()));
+			model.addAttribute("producer", activities.stream().filter(o -> o.getPersonType().equals(PersonType.PRODUCER)).map(Activity :: getContent).collect(Collectors.toList()));
 		}
 		return "findPerson";
 	}

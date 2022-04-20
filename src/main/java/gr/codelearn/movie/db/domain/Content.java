@@ -1,5 +1,7 @@
 package gr.codelearn.movie.db.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -39,6 +41,7 @@ public class Content extends BaseModel {
     @Enumerated(EnumType.STRING)
     private Set<Category> genre;
 
+    @JsonIgnore
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "content",fetch = FetchType.EAGER)

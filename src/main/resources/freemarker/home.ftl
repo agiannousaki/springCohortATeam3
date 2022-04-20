@@ -15,6 +15,13 @@
 	<div class="row">
 		<div class="col">
 
+			<#if latestFilm??>
+				<p>Our latest entry is <b>${latestFilm}</b></p>
+			<#else>
+				SMDB is empty at the moment
+			</#if>
+
+
 		</div>
 	</div>
 </div>

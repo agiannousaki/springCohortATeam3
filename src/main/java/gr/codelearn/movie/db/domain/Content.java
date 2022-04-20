@@ -41,6 +41,6 @@ public class Content extends BaseModel {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "content")
+    @OneToMany(mappedBy = "content",fetch = FetchType.EAGER)
     private Set<Activity> activities;
 }

@@ -25,4 +25,14 @@ public class FilmServiceImpl extends BaseServiceImpl<Film> implements FilmServic
     public List<Film> findFilmsByCategory(Category category) {
         return filmRepository.findFilmsByCategory(category);
     }
+
+    @Override
+    public String findLatestRelease() {
+        return filmRepository.findLatestRelease();
+    }
+
+    @Override
+    public List<Film> findAllLazy() {
+        return filmRepository.findAllLazy();
+    }
 }

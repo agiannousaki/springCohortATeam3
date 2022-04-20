@@ -19,7 +19,7 @@
 						<input class="form-control" value="${person.height!""}">
 					</div>
 					<div class="form-group col-md-6">
-						<label >Address</label>
+						<label >Biography</label>
 						<input class="form-control" value="${person.biography!""}">
 					</div>
 				</div>

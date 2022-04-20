@@ -1,7 +1,9 @@
 package gr.codelearn.movie.db.controller;
 
 import gr.codelearn.movie.db.base.BaseComponent;
+import gr.codelearn.movie.db.domain.Film;
 import gr.codelearn.movie.db.domain.Person;
+import gr.codelearn.movie.db.service.FilmService;
 import gr.codelearn.movie.db.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,14 @@ import java.util.*;
 public class MvcController extends BaseComponent {
 	private final PersonService personService;
 
+	private final FilmService filmService;
+
 	@GetMapping
 	public String index(Model model) {
+
+		String filmTitle = filmService.findLatestRelease();
+		model.addAttribute("latestFilm", filmTitle);
+
 		return "home";
 	}
 

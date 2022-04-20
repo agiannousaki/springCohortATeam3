@@ -17,4 +17,10 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     @Query("select f from Film f join fetch f.genre g where g = ?1")
     List<Film> findFilmsByCategory(Category category);
 
+    @Query(nativeQuery = true)
+    String findLatestRelease();
+
+    @Query("select f from Film f join fetch f.genre")
+    List<Film> findAllLazy();
+
 }

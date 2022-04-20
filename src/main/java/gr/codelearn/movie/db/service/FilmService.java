@@ -8,4 +8,8 @@ import java.util.List;
 public interface FilmService extends BaseService<Film, Long> {
 
     public List<Film> findFilmsByCategory(Category category);
+
+    public String findLatestRelease();
+
+    public List<Film> findAllLazy();
 }
